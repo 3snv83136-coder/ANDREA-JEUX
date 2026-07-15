@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { Game } from "@/lib/types";
 import { PLATFORMS } from "@/lib/constants";
 import { GameCard } from "@/components/sections/GameCard";
+import { GameSearchView } from "@/components/sections/GameSearchView";
 
 interface HomeTabsProps {
   games: Game[];
@@ -13,6 +14,7 @@ interface HomeTabsProps {
 
 const TABS = [
   { id: "jeux", label: "Jeux" },
+  { id: "recherche", label: "Recherche de nouveaux jeux" },
   { id: "zinc", label: "Au zinc, on mange pas bien" },
 ] as const;
 
@@ -71,8 +73,14 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
                 Voir le planning
               </Link>
               <Link
-                href="/admin"
+                href="/recherche"
                 className="rounded-2xl border border-cyan-500/50 bg-cyan-500/10 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20"
+              >
+                Nouveaux jeux
+              </Link>
+              <Link
+                href="/admin"
+                className="rounded-2xl border border-violet-500/50 bg-violet-500/10 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-violet-300 transition hover:bg-violet-500/20"
               >
                 Admin
               </Link>
@@ -118,6 +126,18 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
             </div>
           </section>
         </>
+      )}
+
+      {activeTab === "recherche" && (
+        <section className="relative mx-auto max-w-6xl px-4 py-12 sm:py-16">
+          <h2 className="mb-2 text-center font-[family-name:var(--font-orbitron)] text-2xl font-black text-white sm:text-3xl">
+            Recherche de nouveaux jeux
+          </h2>
+          <p className="mb-8 text-center text-slate-400">
+            Trouve les dernières sorties et ajoute-les à ton planning.
+          </p>
+          <GameSearchView />
+        </section>
       )}
 
       {activeTab === "zinc" && (

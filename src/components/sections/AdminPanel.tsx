@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Game, GameStatus, Platform } from "@/lib/types";
 import { PLATFORMS, STATUSES } from "@/lib/constants";
 import { GameSearchModal } from "./GameSearchModal";
@@ -27,6 +27,28 @@ export function AdminPanel({ initialGames }: AdminPanelProps) {
   const [error, setError] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const pending = sessionStorage.getItem("andrea:pending-game");
+    if (!pending) return;
+
+    try {
+      const data = JSON.parse(pending) as {
+        title?: string;
+        coverUrl?: string;
+        notes?: string;
+      };
+      setForm((f) => ({
+        ...f,
+        title: data.title ?? f.title,
+        coverUrl: data.coverUrl ?? f.coverUrl,
+        notes: data.notes ?? f.notes,
+      }));
+      sessionStorage.removeItem("andrea:pending-game");
+    } catch {
+      sessionStorage.removeItem("andrea:pending-game");
+    }
+  }, []);
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
