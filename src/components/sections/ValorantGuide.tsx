@@ -36,9 +36,9 @@ export function ValorantGuide() {
 
   if (!started) {
     return (
-      <div className="rounded-3xl border border-red-500/30 bg-gradient-to-br from-red-950/40 to-[var(--card)] p-10 text-center neon-border">
-        <p className="text-6xl">🎯</p>
-        <h2 className="mt-6 font-[family-name:var(--font-orbitron)] text-3xl font-black uppercase text-white">
+      <div className="rounded-3xl border border-red-500/30 bg-gradient-to-br from-red-950/40 to-[var(--card)] p-6 text-center neon-border sm:p-10">
+        <p className="text-5xl sm:text-6xl">🎯</p>
+        <h2 className="mt-6 font-[family-name:var(--font-orbitron)] text-2xl font-black uppercase text-white sm:text-3xl">
           Valorant
         </h2>
         <p className="mx-auto mt-4 max-w-md text-slate-400">
@@ -89,7 +89,7 @@ export function ValorantGuide() {
         Étape {step.id} / {total}
       </p>
 
-      <div className="rounded-3xl border border-red-500/30 bg-[var(--card)] p-8 neon-border sm:p-10">
+      <div className="rounded-3xl border border-red-500/30 bg-[var(--card)] p-6 neon-border sm:p-10">
         <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ff4655] font-[family-name:var(--font-orbitron)] text-2xl font-black text-white">
           {step.id}
         </div>
@@ -100,19 +100,19 @@ export function ValorantGuide() {
         <p className="mt-4 text-slate-400">{step.detail}</p>
       </div>
 
-      <div className="flex flex-wrap justify-between gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-between">
         <button
           type="button"
           onClick={handlePrevious}
           disabled={currentStep === 0}
-          className="rounded-xl border border-slate-600 px-6 py-3 font-bold text-slate-300 transition hover:border-slate-400 disabled:opacity-30"
+          className="w-full rounded-xl border border-slate-600 px-6 py-3 font-bold text-slate-300 transition hover:border-slate-400 disabled:opacity-30 sm:w-auto"
         >
           ← Précédent
         </button>
         <button
           type="button"
           onClick={handleNext}
-          className="rounded-xl bg-[#ff4655] px-8 py-3 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white transition hover:bg-[#ff5566]"
+          className="w-full rounded-xl bg-[#ff4655] px-8 py-3 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white transition hover:bg-[#ff5566] sm:w-auto"
         >
           {currentStep === total - 1 ? "Terminer ✓" : "Étape suivante →"}
         </button>

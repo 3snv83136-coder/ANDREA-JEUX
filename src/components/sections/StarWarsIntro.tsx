@@ -33,31 +33,31 @@ export function StarWarsIntro() {
       <div className="starwars-stars" />
 
       {!showCrawl && (
-        <div className="starwars-fade-text absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <p className="starwars-prelude mb-10 text-xl font-medium tracking-[0.35em] text-[#4bd5ee] sm:text-3xl">
+        <div className="starwars-fade-text absolute inset-0 flex flex-col items-center justify-center px-4 text-center sm:px-6">
+          <p className="starwars-prelude mb-6 font-medium text-[#4bd5ee] sm:mb-10">
             Il y a bien longtemps, dans une galaxie lointaine...
           </p>
-          <h1 className="starwars-logo font-[family-name:var(--font-orbitron)] text-7xl font-black uppercase leading-none tracking-[0.15em] text-[#ffe81f] sm:text-9xl md:text-[11rem]">
+          <h1 className="starwars-logo font-[family-name:var(--font-orbitron)] font-black uppercase leading-none text-[#ffe81f]">
             Andrea
           </h1>
         </div>
       )}
 
       {showCrawl && (
-        <div className="starwars-crawl-perspective absolute inset-0 flex justify-center overflow-hidden">
+        <div className="starwars-crawl-perspective absolute inset-0 flex justify-center overflow-hidden px-3 sm:px-6">
           <div className="starwars-crawl-content">
-            <h2 className="mb-12 text-center text-6xl font-black uppercase tracking-widest text-[#ffe81f] sm:text-8xl md:text-9xl">
+            <h2 className="starwars-crawl-title mb-8 text-center font-black uppercase tracking-widest text-[#ffe81f] sm:mb-12">
               Andrea
             </h2>
-            <p className="text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
+            <p className="starwars-crawl-text text-justify font-bold leading-relaxed text-[#ffe81f]">
               Venu des confins de l&apos;espace, Andrea entame un voyage légendaire à
               travers le cosmos intersidéral.
             </p>
-            <p className="mt-10 text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
+            <p className="starwars-crawl-text mt-6 text-justify font-bold leading-relaxed text-[#ffe81f] sm:mt-10">
               Sa quête le mène vers son père, retranché au zinc, et vers son frère
               Lucas, perdu quelque part dans l&apos;immensité stellaire.
             </p>
-            <p className="mt-10 text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
+            <p className="starwars-crawl-text mt-6 text-justify font-bold leading-relaxed text-[#ffe81f] sm:mt-10">
               Guidé par la force des jeux en ligne, le jeune Andrea le King s&apos;apprête
               à écrire sa propre saga...
             </p>
@@ -65,20 +65,21 @@ export function StarWarsIntro() {
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={handleSkip}
-        className="absolute bottom-8 right-8 z-10 rounded-lg border border-[#ffe81f]/40 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#ffe81f]/70 transition hover:border-[#ffe81f] hover:text-[#ffe81f]"
-      >
-        Passer →
-      </button>
-
-      <Link
-        href="/accueil"
-        className="absolute bottom-8 left-8 z-10 text-xs font-bold uppercase tracking-wider text-[#4bd5ee]/60 transition hover:text-[#4bd5ee]"
-      >
-        Andrea King
-      </Link>
+      <div className="starwars-controls absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 px-4 pb-6 sm:px-8 sm:pb-8">
+        <Link
+          href="/accueil"
+          className="text-xs font-bold uppercase tracking-wider text-[#4bd5ee]/60 transition hover:text-[#4bd5ee] sm:text-sm"
+        >
+          Andrea King
+        </Link>
+        <button
+          type="button"
+          onClick={handleSkip}
+          className="rounded-lg border border-[#ffe81f]/40 px-3 py-2 text-xs font-bold uppercase tracking-wider text-[#ffe81f]/70 transition hover:border-[#ffe81f] hover:text-[#ffe81f] sm:px-4 sm:text-sm"
+        >
+          Passer →
+        </button>
+      </div>
     </div>
   );
 }

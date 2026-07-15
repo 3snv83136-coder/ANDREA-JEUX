@@ -182,14 +182,14 @@ export function AdminPanel({ initialGames }: AdminPanelProps) {
       />
 
       <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 neon-border">
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <h2 className="font-[family-name:var(--font-orbitron)] text-xl font-bold text-white">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
+          <h2 className="font-[family-name:var(--font-orbitron)] text-lg font-bold text-white sm:text-xl">
             {editingId ? "Modifier un jeu" : "Ajouter un jeu"}
           </h2>
           <button
             type="button"
             onClick={() => setShowSearch(true)}
-            className="rounded-xl border border-cyan-500/50 bg-cyan-500/10 px-4 py-2 text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20"
+            className="w-full rounded-xl border border-cyan-500/50 bg-cyan-500/10 px-4 py-2.5 text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20 sm:w-auto"
           >
             🌐 Rechercher sur internet
           </button>

@@ -52,11 +52,11 @@ export function PlanningView({ games }: PlanningViewProps) {
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
         <select
           value={platformFilter}
           onChange={(e) => setPlatformFilter(e.target.value as Platform | "all")}
-          className="rounded-xl border border-[var(--border)] bg-slate-900 px-4 py-2 text-sm text-white"
+          className="w-full rounded-xl border border-[var(--border)] bg-slate-900 px-4 py-2.5 text-sm text-white sm:w-auto"
         >
           <option value="all">Toutes les consoles</option>
           {PLATFORMS.map((p) => (
@@ -68,7 +68,7 @@ export function PlanningView({ games }: PlanningViewProps) {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value as GameStatus | "all")}
-          className="rounded-xl border border-[var(--border)] bg-slate-900 px-4 py-2 text-sm text-white"
+          className="w-full rounded-xl border border-[var(--border)] bg-slate-900 px-4 py-2.5 text-sm text-white sm:w-auto"
         >
           <option value="all">Tous les statuts</option>
           {STATUSES.map((s) => (

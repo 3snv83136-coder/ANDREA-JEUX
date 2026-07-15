@@ -14,10 +14,10 @@ interface HomeTabsProps {
 }
 
 const TABS = [
-  { id: "jeux", label: "Jeux" },
-  { id: "recherche", label: "Recherche de nouveaux jeux" },
-  { id: "valorant", label: "Valorant" },
-  { id: "zinc", label: "Au zinc, on mange pas bien" },
+  { id: "jeux", label: "Jeux", shortLabel: "Jeux" },
+  { id: "recherche", label: "Recherche de nouveaux jeux", shortLabel: "Recherche" },
+  { id: "valorant", label: "Valorant", shortLabel: "Valorant" },
+  { id: "zinc", label: "Au zinc, on mange pas bien", shortLabel: "Au zinc" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -29,20 +29,21 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
     <div className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-violet-600/10 via-transparent to-cyan-600/5" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pt-12">
-        <div className="flex flex-wrap justify-center gap-2">
+      <div className="relative mx-auto max-w-6xl px-4 pt-8 sm:pt-12">
+        <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
           {TABS.map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id)}
-              className={`rounded-2xl px-5 py-3 font-[family-name:var(--font-orbitron)] text-xs font-bold transition sm:text-sm ${
+              className={`shrink-0 rounded-2xl px-4 py-2.5 font-[family-name:var(--font-orbitron)] text-xs font-bold transition sm:px-5 sm:py-3 sm:text-sm ${
                 activeTab === tab.id
                   ? "bg-gradient-to-r from-violet-600 to-violet-500 text-white shadow-lg shadow-violet-500/30"
                   : "border border-[var(--border)] bg-[var(--card)] text-slate-400 hover:border-violet-500/50 hover:text-white"
               }`}
             >
-              {tab.label}
+              <span className="sm:hidden">{tab.shortLabel}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
         </div>
@@ -54,7 +55,7 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">
               Bienvenue sur
             </p>
-            <h1 className="text-glow font-[family-name:var(--font-orbitron)] text-4xl font-black uppercase leading-tight tracking-wide text-white sm:text-6xl lg:text-7xl">
+            <h1 className="text-glow font-[family-name:var(--font-orbitron)] text-3xl font-black uppercase leading-tight tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl">
               ANDREA
               <br />
               <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
@@ -67,22 +68,22 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
             <p className="mx-auto mt-4 max-w-lg text-slate-400">
               Ton planning personnel de jeux vidéo — PC, PlayStation, Xbox, Nintendo et plus encore.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 flex w-full max-w-lg flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
               <Link
                 href="/planning"
-                className="rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white shadow-lg shadow-violet-500/30 transition hover:scale-105"
+                className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-6 py-3.5 text-center font-[family-name:var(--font-orbitron)] text-sm font-bold text-white shadow-lg shadow-violet-500/30 transition hover:scale-105 sm:w-auto sm:px-8 sm:py-4"
               >
                 Voir le planning
               </Link>
               <Link
                 href="/recherche"
-                className="rounded-2xl border border-cyan-500/50 bg-cyan-500/10 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20"
+                className="w-full rounded-2xl border border-cyan-500/50 bg-cyan-500/10 px-6 py-3.5 text-center font-[family-name:var(--font-orbitron)] text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20 sm:w-auto sm:px-8 sm:py-4"
               >
                 Nouveaux jeux
               </Link>
               <Link
                 href="/admin"
-                className="rounded-2xl border border-violet-500/50 bg-violet-500/10 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-violet-300 transition hover:bg-violet-500/20"
+                className="w-full rounded-2xl border border-violet-500/50 bg-violet-500/10 px-6 py-3.5 text-center font-[family-name:var(--font-orbitron)] text-sm font-bold text-violet-300 transition hover:bg-violet-500/20 sm:w-auto sm:px-8 sm:py-4"
               >
                 Admin
               </Link>

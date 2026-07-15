@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   description: "ANDREA LE KING, DES JEUX EN LIGNE — Planning de jeux vidéo multi-consoles",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +37,7 @@ export default function RootLayout({
         className={`${orbitron.variable} ${rajdhani.variable} font-[family-name:var(--font-rajdhani)] antialiased grid-bg`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="min-h-0 w-full overflow-x-hidden">{children}</main>
       </body>
     </html>
   );

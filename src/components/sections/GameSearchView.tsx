@@ -70,19 +70,19 @@ export function GameSearchView() {
           e.preventDefault();
           handleSearch();
         }}
-        className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 neon-border"
+        className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 neon-border sm:p-6"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher un nouveau jeu..."
-            className="flex-1 rounded-xl border border-[var(--border)] bg-slate-900 px-5 py-4 text-lg text-white outline-none focus:border-cyan-500"
+            className="flex-1 rounded-xl border border-[var(--border)] bg-slate-900 px-4 py-3 text-base text-white outline-none focus:border-cyan-500 sm:px-5 sm:py-4 sm:text-lg"
           />
           <button
             type="submit"
             disabled={loading || query.length < 2}
-            className="rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white transition hover:from-cyan-500 hover:to-cyan-400 disabled:opacity-50"
+            className="w-full rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 px-8 py-3.5 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white transition hover:from-cyan-500 hover:to-cyan-400 disabled:opacity-50 sm:w-auto sm:py-4"
           >
             {loading ? "Recherche..." : "🔍 Chercher"}
           </button>
