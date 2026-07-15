@@ -1,9 +1,5 @@
-import { getGames } from "@/lib/db";
-import { HomeTabs } from "@/components/sections/HomeTabs";
+import { StarWarsIntro } from "@/components/sections/StarWarsIntro";
 
-export default async function HomePage() {
-  const games = await getGames();
-  const playing = games.filter((g) => g.status === "playing").slice(0, 4);
-
-  return <HomeTabs games={games} playing={playing} />;
+export default function IntroPage() {
+  return <StarWarsIntro />;
 }

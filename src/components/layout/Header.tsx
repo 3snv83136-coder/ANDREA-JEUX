@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/", label: "Accueil" },
+  { href: "/accueil", label: "Accueil" },
   { href: "/recherche", label: "Recherche" },
   { href: "/valorant", label: "Valorant" },
   { href: "/planning", label: "Planning" },
@@ -9,11 +12,15 @@ const links = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
+
+  if (pathname === "/") return null;
+
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link
-          href="/"
+          href="/accueil"
           className="font-[family-name:var(--font-orbitron)] text-lg font-bold tracking-wider text-[var(--accent-glow)]"
         >
           ANDREA<span className="text-[var(--cyan)]">KING</span>

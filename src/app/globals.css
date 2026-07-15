@@ -34,3 +34,87 @@ body {
     background-size: 40px 40px;
   }
 }
+
+/* Star Wars intro */
+.starwars-scene {
+  background: #000;
+}
+
+.starwars-stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 80px 120px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 150px 80px, #fff, transparent),
+    radial-gradient(1px 1px at 250px 200px, #fff, transparent),
+    radial-gradient(1px 1px at 320px 50px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 400px 150px, #fff, transparent),
+    radial-gradient(1px 1px at 500px 90px, #fff, transparent),
+    radial-gradient(1px 1px at 600px 250px, #fff, transparent);
+  background-size: 650px 300px;
+  animation: starwars-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes starwars-twinkle {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.starwars-fade-text {
+  animation: starwars-fade-in 2s ease-out forwards;
+}
+
+@keyframes starwars-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.starwars-prelude {
+  animation: starwars-fade-in 3s ease-out forwards;
+}
+
+.starwars-logo {
+  text-shadow: 0 0 10px #ffe81f, 0 0 30px #ffe81f, 0 0 60px #ff8c00;
+  animation: starwars-logo-zoom 2.5s ease-in forwards;
+}
+
+@keyframes starwars-logo-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.starwars-crawl-perspective {
+  perspective: 320px;
+  perspective-origin: 50% 100%;
+}
+
+.starwars-crawl-content {
+  width: min(90%, 680px);
+  transform-origin: 50% 100%;
+  animation: starwars-crawl 12s linear forwards;
+  padding-top: 100vh;
+}
+
+@keyframes starwars-crawl {
+  0% {
+    transform: rotateX(25deg) translateY(0) scale(1);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(35deg) translateY(-120vh) scale(0.35);
+    opacity: 0;
+  }
+}
