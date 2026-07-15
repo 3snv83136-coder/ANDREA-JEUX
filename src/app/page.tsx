@@ -1,101 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getGames } from "@/lib/db";
+import { GameCard } from "@/components/sections/GameCard";
+import { PLATFORMS } from "@/lib/constants";
 
-export default function Home() {
+export default async function HomePage() {
+  const games = await getGames();
+  const playing = games.filter((g) => g.status === "playing").slice(0, 4);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-violet-600/10 via-transparent to-cyan-600/5" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <section className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:py-28">
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">
+          Bienvenue sur
+        </p>
+        <h1 className="text-glow font-[family-name:var(--font-orbitron)] text-4xl font-black uppercase leading-tight tracking-wide text-white sm:text-6xl lg:text-7xl">
+          ANDREA
+          <br />
+          <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            LE KING
+          </span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-xl text-xl font-semibold text-slate-300 sm:text-2xl">
+          DES JEUX EN LIGNE
+        </p>
+        <p className="mx-auto mt-4 max-w-lg text-slate-400">
+          Ton planning personnel de jeux vidéo — PC, PlayStation, Xbox, Nintendo et plus encore.
+        </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <Link
+            href="/planning"
+            className="rounded-2xl bg-gradient-to-r from-violet-600 to-violet-500 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-white shadow-lg shadow-violet-500/30 transition hover:scale-105"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Voir le planning
+          </Link>
+          <Link
+            href="/admin"
+            className="rounded-2xl border border-cyan-500/50 bg-cyan-500/10 px-8 py-4 font-[family-name:var(--font-orbitron)] text-sm font-bold text-cyan-300 transition hover:bg-cyan-500/20"
           >
-            Read our docs
-          </a>
+            Admin
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-8">
+        <h2 className="mb-6 text-center font-[family-name:var(--font-orbitron)] text-lg font-bold text-slate-300">
+          Plateformes supportées
+        </h2>
+        <div className="flex flex-wrap justify-center gap-3">
+          {PLATFORMS.map((p) => (
+            <span
+              key={p.id}
+              className="rounded-full border px-4 py-2 text-sm font-bold"
+              style={{ borderColor: p.color, color: p.color }}
+            >
+              {p.label}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {playing.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="mb-8 font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white">
+            🎮 En cours de jeu
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {playing.map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-6xl px-4 py-16 text-center">
+        <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-10 neon-border">
+          <p className="font-[family-name:var(--font-orbitron)] text-3xl font-black text-[var(--accent-glow)]">
+            {games.length}
+          </p>
+          <p className="mt-2 text-slate-400">jeux dans la bibliothèque</p>
+        </div>
+      </section>
     </div>
   );
 }
