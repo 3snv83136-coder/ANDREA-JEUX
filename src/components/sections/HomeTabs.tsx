@@ -6,6 +6,7 @@ import type { Game } from "@/lib/types";
 import { PLATFORMS } from "@/lib/constants";
 import { GameCard } from "@/components/sections/GameCard";
 import { GameSearchView } from "@/components/sections/GameSearchView";
+import { ValorantGuide } from "@/components/sections/ValorantGuide";
 
 interface HomeTabsProps {
   games: Game[];
@@ -15,6 +16,7 @@ interface HomeTabsProps {
 const TABS = [
   { id: "jeux", label: "Jeux" },
   { id: "recherche", label: "Recherche de nouveaux jeux" },
+  { id: "valorant", label: "Valorant" },
   { id: "zinc", label: "Au zinc, on mange pas bien" },
 ] as const;
 
@@ -137,6 +139,18 @@ export function HomeTabs({ games, playing }: HomeTabsProps) {
             Trouve les dernières sorties et ajoute-les à ton planning.
           </p>
           <GameSearchView />
+        </section>
+      )}
+
+      {activeTab === "valorant" && (
+        <section className="relative mx-auto max-w-3xl px-4 py-12 sm:py-16">
+          <h2 className="mb-2 text-center font-[family-name:var(--font-orbitron)] text-2xl font-black text-white sm:text-3xl">
+            Valorant
+          </h2>
+          <p className="mb-8 text-center text-slate-400">
+            Guide step by step pour lancer ta session.
+          </p>
+          <ValorantGuide />
         </section>
       )}
 
