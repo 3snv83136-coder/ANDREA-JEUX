@@ -94,27 +94,27 @@ body {
 }
 
 .starwars-crawl-perspective {
-  perspective: 320px;
+  perspective: 400px;
   perspective-origin: 50% 100%;
 }
 
 .starwars-crawl-content {
-  width: min(90%, 680px);
+  width: min(95%, 900px);
   transform-origin: 50% 100%;
-  animation: starwars-crawl 12s linear forwards;
+  animation: starwars-crawl 14s linear forwards;
   padding-top: 100vh;
 }
 
 @keyframes starwars-crawl {
   0% {
-    transform: rotateX(25deg) translateY(0) scale(1);
+    transform: rotateX(25deg) translateY(0) scale(1.1);
     opacity: 1;
   }
   85% {
     opacity: 1;
   }
   100% {
-    transform: rotateX(35deg) translateY(-120vh) scale(0.35);
+    transform: rotateX(35deg) translateY(-130vh) scale(0.5);
     opacity: 0;
   }
 }

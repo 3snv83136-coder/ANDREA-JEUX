@@ -11,8 +11,8 @@ export function StarWarsIntro() {
 
   useEffect(() => {
     const t1 = setTimeout(() => setShowCrawl(true), 2500);
-    const t2 = setTimeout(() => setFadeOut(true), 14000);
-    const t3 = setTimeout(() => router.push("/accueil"), 15500);
+    const t2 = setTimeout(() => setFadeOut(true), 16000);
+    const t3 = setTimeout(() => router.push("/accueil"), 17500);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -34,10 +34,10 @@ export function StarWarsIntro() {
 
       {!showCrawl && (
         <div className="starwars-fade-text absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-          <p className="starwars-prelude mb-8 text-sm font-medium tracking-[0.35em] text-[#4bd5ee] sm:text-base">
+          <p className="starwars-prelude mb-10 text-xl font-medium tracking-[0.35em] text-[#4bd5ee] sm:text-3xl">
             Il y a bien longtemps, dans une galaxie lointaine...
           </p>
-          <h1 className="starwars-logo font-[family-name:var(--font-orbitron)] text-5xl font-black uppercase leading-none tracking-[0.15em] text-[#ffe81f] sm:text-7xl md:text-8xl">
+          <h1 className="starwars-logo font-[family-name:var(--font-orbitron)] text-7xl font-black uppercase leading-none tracking-[0.15em] text-[#ffe81f] sm:text-9xl md:text-[11rem]">
             Andrea
           </h1>
         </div>
@@ -46,18 +46,18 @@ export function StarWarsIntro() {
       {showCrawl && (
         <div className="starwars-crawl-perspective absolute inset-0 flex justify-center overflow-hidden">
           <div className="starwars-crawl-content">
-            <h2 className="mb-8 text-center text-4xl font-black uppercase tracking-widest text-[#ffe81f] sm:text-5xl">
+            <h2 className="mb-12 text-center text-6xl font-black uppercase tracking-widest text-[#ffe81f] sm:text-8xl md:text-9xl">
               Andrea
             </h2>
-            <p className="text-justify text-lg font-bold leading-relaxed text-[#ffe81f] sm:text-xl">
+            <p className="text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
               Venu des confins de l&apos;espace, Andrea entame un voyage légendaire à
               travers le cosmos intersidéral.
             </p>
-            <p className="mt-6 text-justify text-lg font-bold leading-relaxed text-[#ffe81f] sm:text-xl">
+            <p className="mt-10 text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
               Sa quête le mène vers son père, retranché au zinc, et vers son frère
               Lucas, perdu quelque part dans l&apos;immensité stellaire.
             </p>
-            <p className="mt-6 text-justify text-lg font-bold leading-relaxed text-[#ffe81f] sm:text-xl">
+            <p className="mt-10 text-justify text-2xl font-bold leading-relaxed text-[#ffe81f] sm:text-4xl md:text-5xl">
               Guidé par la force des jeux en ligne, le jeune Andrea le King s&apos;apprête
               à écrire sa propre saga...
             </p>
